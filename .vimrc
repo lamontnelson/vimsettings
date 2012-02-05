@@ -1,4 +1,5 @@
 call pathogen#infect()
+call pathogen#helptags()
 
 "Filetype
 set filetype=on
@@ -45,3 +46,5 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 "Incremental search
 set incsearch
+
+autocmd vimenter * NERDTree
