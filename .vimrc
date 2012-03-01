@@ -61,3 +61,5 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set incsearch
 
 autocmd vimenter * NERDTree
+
+nnoremap <C-T> :FufFile **/<CR>
