@@ -37,6 +37,19 @@ autocmd FileType css set sw=2
 autocmd FileType css set ts=2
 autocmd FileType css set sts=2
 
+" CSS (tab width 2 chr, wrap at 79th char)
+autocmd FileType javascript set sw=4
+autocmd FileType javascript set ts=4
+autocmd FileType javascript set sts=4
+
+" Ruby
+autocmd FileType ruby set sw=2
+autocmd FileType ruby set ts=2
+autocmd FileType ruby set sts=2
+autocmd FileType eruby set sw=2
+autocmd FileType eruby set ts=2
+autocmd FileType eruby set sts=2
+
 " Setup OmniCompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
