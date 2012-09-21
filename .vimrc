@@ -27,28 +27,34 @@ autocmd FileType html set sw=2
 autocmd FileType html set ts=2
 autocmd FileType html set sts=2
 autocmd FileType html set textwidth=0
+
 " XHTML (tab width 2 chr, no wrapping)
 autocmd FileType xhtml set sw=2
 autocmd FileType xhtml set ts=2
 autocmd FileType xhtml set sts=2
 autocmd FileType xhtml set textwidth=0
-" CSS (tab width 2 chr, wrap at 79th char)
+
+" CSS (tab width 2 chr)
 autocmd FileType css set sw=2
 autocmd FileType css set ts=2
 autocmd FileType css set sts=2
 
-" CSS (tab width 2 chr, wrap at 79th char)
+" Javascript (tab width 2 chr)
 autocmd FileType javascript set sw=4
 autocmd FileType javascript set ts=4
 autocmd FileType javascript set sts=4
+autocmd FileType javascript set expandtab
 
 " Ruby
 autocmd FileType ruby set sw=2
 autocmd FileType ruby set ts=2
 autocmd FileType ruby set sts=2
+autocmd FileType ruby set expandtab
+
 autocmd FileType eruby set sw=2
 autocmd FileType eruby set ts=2
 autocmd FileType eruby set sts=2
+autocmd FileType eruby set expandtab
 
 " Setup OmniCompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
