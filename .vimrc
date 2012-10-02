@@ -69,3 +69,11 @@ set incsearch
 autocmd vimenter * NERDTree
 
 nnoremap <C-T> :FufFile **/<CR>
+
+if has('gui_running')
+   if has('mac_vim')
+       set guifont=:Monaco:h17
+   else
+       set guifont=Monaco\ 14
+   end
+end
