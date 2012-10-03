@@ -44,6 +44,7 @@ autocmd FileType javascript set sw=4
 autocmd FileType javascript set ts=4
 autocmd FileType javascript set sts=4
 autocmd FileType javascript set expandtab
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " Ruby
 autocmd FileType ruby set sw=2
@@ -62,6 +63,19 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+set wildmenu
+set wildmode=list:longest
+
+set ignorecase
+set smartcase
+
+set title
+
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+let g:NERDTreeDirArrows=0
 
 "Incremental search
 set incsearch
