@@ -19,7 +19,7 @@ set textwidth=79
 set t_Co=256
 colorscheme desert256
 syntax on
-highlight Pmenu guibg=#BACDFF guifg=#403D3D gui=bold
+highlight Pmenu ctermbg=27 guibg=#0066FF ctermfg=255 guifg=#EEEEEE gui=bold cterm=bold
 
 au InsertLeave * hi Cursor guibg=red
 au InsertEnter * hi Cursor guibg=green
