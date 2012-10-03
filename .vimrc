@@ -16,7 +16,9 @@ set et
 set sw=4
 set textwidth=79
 
-colorscheme desert
+set t_Co=256
+colorscheme desert256
+syntax on
 highlight Pmenu guibg=#BACDFF guifg=#403D3D gui=bold
 
 au InsertLeave * hi Cursor guibg=red
