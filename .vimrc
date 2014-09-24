@@ -8,13 +8,14 @@ filetype indent on
 
 "Show line number
 set number
+set hlsearch
 
 set ai
 set ts=4
 set sts=4
 set et
 set sw=4
-set textwidth=79
+set textwidth=0
 
 set t_Co=256
 colorscheme desert256
@@ -83,6 +84,7 @@ let g:NERDTreeDirArrows=0
 set incsearch
 
 autocmd vimenter * NERDTree
+autocmd vimenter * wincmd l
 
 nnoremap <C-T> :FufFile **/<CR>
 
