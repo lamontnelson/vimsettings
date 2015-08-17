@@ -44,6 +44,9 @@ filetype plugin indent on    " required
 let mapleader=","
 
 noremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>bb :buffers<CR>
+noremap <leader>bs :1sbn<CR>
+noremap <leader>bn :1bn<CR>
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
 
 call pathogen#infect()
