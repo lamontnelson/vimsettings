@@ -11,7 +11,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
-Plugin 'taglist.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -49,7 +50,8 @@ noremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>bb :buffers<CR>
 noremap <leader>bs :1sbn<CR>
 noremap <leader>bn :1bn<CR>
-nnoremap <silent> <F8> :TlistToggle<CR>
+"nnoremap <silent> <F8> :TlistToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
 function ClangFormatFile() 
@@ -159,6 +161,7 @@ if has('gui_running')
    end
 end
 
+let g:ycm_server_keep_logfiles=1
 let g:NERDTreeDirArrows=1
 let Tlist_Use_Right_Window = 1
-let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 0 
