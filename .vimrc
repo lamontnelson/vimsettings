@@ -126,6 +126,11 @@ autocmd FileType eruby set ts=2
 autocmd FileType eruby set sts=2
 autocmd FileType eruby set expandtab
 
+autocmd FileType rust set sw=2
+autocmd FileType rust set ts=2
+autocmd FileType rust set sts=2
+autocmd FileType rust set expandtab
+
 " Setup OmniCompletion
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
