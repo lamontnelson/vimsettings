@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'taglist.vim'
+Plugin 'rust-lang/rust.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -49,14 +50,21 @@ noremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>bb :buffers<CR>
 noremap <leader>bs :1sbn<CR>
 noremap <leader>bn :1bn<CR>
-nnoremap <silent> <F8> :TlistToggle<CR>
-nnoremap <silent> <F7> :NERDTreeToggle<CR>
+nnoremap <silent><F8> :TlistToggle<CR>
+nnoremap <silent><F7> :NERDTreeToggle<CR>
+
+command GitDiff execute "!echo gitdiff; git diff"
+command GitDiffCached execute "!git diff --cached"
+command GitShow execute "!git show" 
+nnoremap <silent><F9> :GitDiff
+
 
 function ClangFormatFile() 
   let l:lines="all"
   pyf /usr/local/bin/clang-format.py
 endfunction
 noremap <leader>cf :call ClangFormatFile()<CR>
+noremap <leader>cs :%!astyle --style=google --indent=spaces=2<CR>
 
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
 let g:ycm_confirm_extra_conf = 0
