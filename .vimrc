@@ -11,8 +11,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
-Plugin 'taglist.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
 Plugin 'rust-lang/rust.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -50,7 +53,6 @@ noremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <leader>bb :buffers<CR>
 noremap <leader>bs :1sbn<CR>
 noremap <leader>bn :1bn<CR>
-nnoremap <silent><F8> :TlistToggle<CR>
 nnoremap <silent><F7> :NERDTreeToggle<CR>
 
 command GitDiff execute "!echo gitdiff; git diff"
@@ -58,13 +60,27 @@ command GitDiffCached execute "!git diff --cached"
 command GitShow execute "!git show" 
 nnoremap <silent><F9> :GitDiff
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <space> za
+
+"nnoremap <silent> <F8> :TlistToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
 function ClangFormatFile() 
   let l:lines="all"
   pyf /usr/local/bin/clang-format.py
 endfunction
 noremap <leader>cf :call ClangFormatFile()<CR>
-noremap <leader>cs :%!astyle --style=google --indent=spaces=2<CR>
+noremap <leader>cs :%!astyle --style=google --indent=spaces=2 --max-code-length=80<CR>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
 
 let g:ycm_extra_conf_globlist = ['.ycm_extra_conf.py']
 let g:ycm_confirm_extra_conf = 0
@@ -96,47 +112,50 @@ highlight Pmenu ctermbg=27 guibg=#0066FF ctermfg=255 guifg=#EEEEEE gui=bold cter
 au InsertLeave * hi Cursor guibg=red
 au InsertEnter * hi Cursor guibg=green
 
-" HTML (tab width 2 chr, no wrapping)
-autocmd FileType html set sw=2
-autocmd FileType html set ts=2
-autocmd FileType html set sts=2
-autocmd FileType html set textwidth=0
+autocmd FileType html
+	\ set ts=4
+	\ sts=4
+	\ sw=4
+	\ textwidth=0
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
 
-" XHTML (tab width 2 chr, no wrapping)
-autocmd FileType xhtml set sw=2
-autocmd FileType xhtml set ts=2
-autocmd FileType xhtml set sts=2
-autocmd FileType xhtml set textwidth=0
+autocmd FileType css
+	\ set ts=2
+	\ sts=2 
+	\ sw=2
+	\ textwidth=79 
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
 
-" CSS (tab width 2 chr)
-autocmd FileType css set sw=2
-autocmd FileType css set ts=2
-autocmd FileType css set sts=2
+autocmd FileType javascript
+	\ set ts=4
+	\ sts=4
+	\ sw=4
+	\ textwidth=79 
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
 
-" Javascript (tab width 2 chr)
-autocmd FileType javascript set sw=4
-autocmd FileType javascript set ts=4
-autocmd FileType javascript set sts=4
-autocmd FileType javascript set expandtab
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd FileType ruby
+	\ set ts=2
+	\ sts=2 
+	\ sw=2
+	\ textwidth=79 
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
 
-" Ruby
-autocmd FileType ruby set sw=2
-autocmd FileType ruby set ts=2
-autocmd FileType ruby set sts=2
-autocmd FileType ruby set expandtab
-
-autocmd FileType eruby set sw=2
-autocmd FileType eruby set ts=2
-autocmd FileType eruby set sts=2
-autocmd FileType eruby set expandtab
-
-" Setup OmniCompletion
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType python
+	\ set ts=4 
+	\ sts=4 
+	\ sw=4 
+	\ textwidth=79 
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
 
 set wildmenu
 set wildmode=list:longest
@@ -167,6 +186,7 @@ if has('gui_running')
    end
 end
 
+let g:ycm_server_keep_logfiles=1
 let g:NERDTreeDirArrows=1
 let Tlist_Use_Right_Window = 1
-let Tlist_Auto_Open = 1
+let Tlist_Auto_Open = 0 
