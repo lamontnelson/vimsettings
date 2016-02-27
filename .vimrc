@@ -157,6 +157,15 @@ autocmd FileType python
 	\ autoindent 
 	\ fileformat=unix 
 
+autocmd FileType rust
+	\ set ts=2 
+	\ sts=2 
+	\ sw=2 
+	\ textwidth=79 
+	\ expandtab 
+	\ autoindent 
+	\ fileformat=unix 
+
 set wildmenu
 set wildmode=list:longest
 
