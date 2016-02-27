@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -196,6 +197,7 @@ if has('gui_running')
 end
 
 let g:ycm_server_keep_logfiles=1
+let g:ycm_path_to_python_interpreter ='/usr/bin/python2.7'
 let g:NERDTreeDirArrows=1
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Open = 0 
