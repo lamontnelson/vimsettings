@@ -201,3 +201,9 @@ let g:ycm_path_to_python_interpreter ='/usr/bin/python2.7'
 let g:NERDTreeDirArrows=1
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Open = 0 
+
+function SwitchBuffer()
+   b#
+endfunction
+
+nmap <Tab> :call SwitchBuffer()<CR>
