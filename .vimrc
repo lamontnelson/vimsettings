@@ -1,3 +1,4 @@
+set encoding=utf-8
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -197,7 +198,6 @@ if has('gui_running')
 end
 
 let g:ycm_server_keep_logfiles=1
-let g:ycm_path_to_python_interpreter ='/usr/bin/python2.7'
 let g:NERDTreeDirArrows=1
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Open = 0 
